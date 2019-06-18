@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "discord.js-musicplayer": "latest",
+    "discord.js": "latest",
+    "ffmpeg": "latest",
+    "ffmpeg-binaries": "latest",
+    "node-opus": "latest",
+    "opusscript": "latest"
+  }
+}
