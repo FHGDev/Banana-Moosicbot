@@ -7,7 +7,7 @@ module.exports.run = (bot, message, args) => {
         if (typeof output !== 'string') output = require('util').inspect(output, { depth: 0 });
         if (output.includes(bot.token)) output = output.replace(bot.token, 'Nice try fucker');
         const em = new embed()
-        .setTitle("Modboi Canary Eval")
+        .setTitle("Banana Moosicbot Eval")
         .setDescription("Eval returned:\n```js\n"+output+"```")
         .setTimestamp()
         .setColor("RANDOM")
@@ -19,7 +19,7 @@ module.exports.run = (bot, message, args) => {
         if (err.includes(bot.token)) err = err.replace(bot.token, 'Nice try fucker');
 
         const em = new embed()
-        .setTitle("Modboi Canary Eval")
+        .setTitle("Banana Moosicbot Eval")
         .setDescription("Error:\n```js\n"+err+"```")
         .setTimestamp()
         .setColor("RANDOM")
@@ -32,6 +32,6 @@ module.exports.run = (bot, message, args) => {
 
 module.exports.help = {
     name: "eval",
-    usage: `m!eval code`,
+    usage: `b.eval code`,
     info: "Execute some Node.js code inside of Discord."
 }
