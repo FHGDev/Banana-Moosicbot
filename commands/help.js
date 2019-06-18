@@ -6,7 +6,7 @@ module.exports.run = (bot, message, args) => {
   .setColor("GREEN")
   
   for (const [key,value] of bot.commands) {
-    em.addField("Command Name: "+key, `Usage: ${value.usage}\nInfo: ${value.info}`)
+    em.addField("Command Name: "+key, `Usage: ${value.help.usage}\nInfo: ${value.help.info}`)
   }
   
   message.channel.send({embed: em})
