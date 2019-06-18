@@ -5,6 +5,7 @@
     "ffmpeg": "latest",
     "ffmpeg-binaries": "latest",
     "node-opus": "latest",
-    "opusscript": "latest"
+    "opusscript": "latest",
+    "mongoose": "latest"
   }
 }
