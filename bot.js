@@ -11,6 +11,7 @@ bot.prefix = "b."
 bot.owner;
 bot.invite;
 global.embed = discord.RichEmbed
+global.user = require('./util/models/user')
 
 setTimeout(() => {
   mongoose.connect(`mongodb+srv://FHGDev:${process.env.atlaspass}@cluster0-ra6vb.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true })
@@ -47,8 +48,23 @@ bot.on('message', message => {
   const cmd = bot.commands.get(mArray[0].slice(bot.prefix.length))
   
   if (cmd) {
-    cmd.run(bot, message, args)
-    console.log(`${message.author.username} used the ${cmd.help.name} command.`)
+    user.findOne({userId: message.author.id}, (err,data) => {
+      if (data) {
+        if (data.blacklisted) {
+          return;
+        } else {
+          cmd.run(bot, message, args)
+          console.log(`${message.author.username} used the ${cmd.help.name} command.`)
+        }
+      } else {
+        const newUser = new user({
+          userId: message.author.id,
+          coins: 0,
+          blacklisted: false
+        })
+        newUser.save()
+      }
+    })
   }
 })
 
